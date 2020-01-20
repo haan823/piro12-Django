@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <table>
+       <tbody>
+       {% for item in item_list %}
+       <tr>
+           <td>{{ item.id }}</td>
+           <td>
+               {{ item.name }}<br/>
+               {{ item.price }}<br/>
+               {{ item.desc }} </td>
+           <td>{{ item.updated_at }}</td>
+       </tr>
+       {% endfor %}
+       </tbody>
+   </table>
+</body>
+</html>

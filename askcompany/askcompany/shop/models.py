@@ -17,17 +17,7 @@ class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     blog_url = models.URLField(blank=True)
 
-class Post(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    title = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField(allow_unicode=True, db_index=True)
-    desc = models.TextField(blank=True)
-    image = models.ImageField(blank=True)
-    comment_count = models.PositiveIntegerField(default=0)
-    tag_set = models.ManyToManyField('Tag', blank=True)
-    is_publish = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+
 
 class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -38,3 +28,11 @@ class Comment(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
+
+class Post(models.Model):
+    author_name = models.CharField(max_length=20)
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    photo = models.ImageField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

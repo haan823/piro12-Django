@@ -1,0 +1,10 @@
+{%  extends "blog/layout.html" %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    {{ post.content|linebreaks }}
+
+    <hr>
+
+    <a href="{%  url 'blog:post_list' %}">목록</a>
+{% endblock %}

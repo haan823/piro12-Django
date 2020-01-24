@@ -1,6 +1,7 @@
 {% extends 'accounts/layout.html' %}
 
 {% block content %}
+    <h2>로그인</h2>
     <form action="" method="post">
         {% csrf_token %}
         <table>
@@ -8,4 +9,8 @@
         </table>
         <input type="submit">
     </form>
+
+    <hr>
+
+    <a href="{% url 'password_reset'%}">암호 리셋하기</a>
 {% endblock %}
